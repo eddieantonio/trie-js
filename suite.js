@@ -13,17 +13,17 @@ let trie = util.buildTrie(fs.readFileSync('./dict/suffix.js', 'utf8'));
 let arr = util.buildBinaryDict(rawWords);
 
 suite
-  .add('Trie lookup', function () {
+  .add('Trie lookup (entry exists)', function () {
     util.findTrieWord(randomWord());
   })
-  .add('Array lookup', function () {
+  .add('Array lookup (entry exists)', function () {
     util.findBinaryWord(randomWord())
   })
   .on('cycle', function (event) {
     console.log('' + event.target);
   })
   .on('complete', function () {
-    console.log('Fastest is' + this.filter('fastest').map('name'));
+    console.log('Fastest is ' + this.filter('fastest').map('name'));
   })
   .run({ async: true });
 
