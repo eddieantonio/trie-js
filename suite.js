@@ -22,12 +22,8 @@ lookupSuite
   .add('Array', function () {
     util.findBinaryWord(randomWord())
   })
-  .on('cycle', function (event) {
-    console.log('' + event.target);
-  })
-  .on('complete', function () {
-    console.log(`Fastest is ${this.filter('fastest').map('name')}`);
-  })
+  .on('cycle', onCycle)
+  .on('complete', onComplete)
   .run();
 
 let failedLookupSuite = new Benchmark.Suite('Finding a word that does not exist');
@@ -38,12 +34,8 @@ failedLookupSuite
   .add('Array', function () {
     util.findBinaryWord(randomNonWord())
   })
-  .on('cycle', function (event) {
-    console.log('' + event.target);
-  })
-  .on('complete', function () {
-    console.log(`Fastest is ${this.filter('fastest').map('name')}`);
-  })
+  .on('cycle', onCycle)
+  .on('complete', onComplete)
   .run();
 
 
@@ -61,4 +53,16 @@ function randomNonWord() {
   let pos = ~~(Math.random() * word.length);
   let c = String.fromCharCode(0xE000 | word.charCodeAt(pos))
   return word.substring(0, pos) + c + word.substring(pos + 1);
+}
+
+function onCycle (event) {
+  log('' + event.target);
+}
+
+function onComplete () {
+  log(`Fastest is **${this.filter('fastest').map('name')}**`);
+}
+
+function log(txt) {
+  console.log(`> ${txt}<br/>`);
 }

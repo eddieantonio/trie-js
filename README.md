@@ -15,19 +15,15 @@ Benchmarks done on my 2013 Macbook Pro, node v10.7.0.
 
 #### Word exists in wordlist
 
-> Trie x 504,542 ops/sec ±1.91% (84 runs sampled)
->
-> Array x 8,091,556 ops/sec ±3.27% (80 runs sampled)
->
-> Fastest is Array
+> Trie x 502,285 ops/sec ±2.47% (82 runs sampled)<br/>
+> Array x 8,288,375 ops/sec ±2.43% (84 runs sampled)<br/>
+> Fastest is **Array**<br/>
 
 #### Word does NOT exist in wordlist
 
-> Trie x 490,448 ops/sec ±1.75% (84 runs sampled)\
->
-> Array x 3,509,242 ops/sec ±2.31% (85 runs sampled)\
->
-> Fastest is Array
+> Trie x 483,315 ops/sec ±2.19% (86 runs sampled)<br/>
+> Array x 3,463,789 ops/sec ±2.96% (82 runs sampled)<br/>
+> Fastest is **Array**<br/>
 
 It seems that binary searching in a word list is faster than the trie,
 both for looking up a word in the list, and looking up words that do not
