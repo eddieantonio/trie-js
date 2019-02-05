@@ -11,13 +11,29 @@ suffix trie implementation.
 
 ### Results
 
-> Trie lookup (entry exists) x 413,275 ops/sec ±1.46% (83 runs sampled)
->
-> Array lookup (entry exists) x 12,391,280 ops/sec ±1.62% (85 runs sampled)
->
-> Fastest is **Array lookup (entry exists)**
 
-The Array binary search lookup is superior in speed! 
+#### Word exists in wordlist
+
+> Trie x 409,019 ops/sec ±1.51% (86 runs sampled)
+>
+> Array x 11,598,258 ops/sec ±6.82% (77 runs sampled)
+>
+> Fastest is Array
+
+#### Word does NOT exist in wordlist
+
+> Trie x 346,308 ops/sec ±5.15% (74 runs sampled)
+>
+> Array x 1,674,640 ops/sec ±9.75% (64 runs sampled)
+>
+> Fastest is Array
+
+It seems that binary searching in a word list is faster than the trie,
+both for looking up a word in the list, and looking up words that do not
+exist.
+
+However, at over 300 thousand operations per second on a 2013 MacBook,
+the trie may be fast enough.
 
 ---
 
