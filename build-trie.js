@@ -1,4 +1,6 @@
-var txt = require("fs").readFileSync("dict/string.txt", "utf8"),
+let [_node, _scriptName, dictPath] = process.argv;
+dictPath = dictPath || 'dict/string.txt';
+var txt = require("fs").readFileSync(dictPath, "utf8"),
 	words = txt.replace(/\n/g, "").split(" ").sort(),
 	trie = {},
 	end = {},
