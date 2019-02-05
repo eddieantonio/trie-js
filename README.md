@@ -15,17 +15,17 @@ Benchmarks done on my 2013 Macbook Pro, node v10.7.0.
 
 #### Word exists in wordlist
 
-> Trie x 409,019 ops/sec ±1.51% (86 runs sampled)
+> Trie x 504,542 ops/sec ±1.91% (84 runs sampled)
 >
-> Array x 11,598,258 ops/sec ±6.82% (77 runs sampled)
+> Array x 8,091,556 ops/sec ±3.27% (80 runs sampled)
 >
 > Fastest is Array
 
 #### Word does NOT exist in wordlist
 
-> Trie x 346,308 ops/sec ±5.15% (74 runs sampled)
+> Trie x 490,448 ops/sec ±1.75% (84 runs sampled)\
 >
-> Array x 1,674,640 ops/sec ±9.75% (64 runs sampled)
+> Array x 3,509,242 ops/sec ±2.31% (85 runs sampled)\
 >
 > Fastest is Array
 

@@ -3,12 +3,12 @@ let Benchmark = require('benchmark');
 let util = require('./util');
 let fs = require('fs');
 
-let rawWords = fs.readFileSync('./dict/string.txt', 'utf8');
+let rawWords = fs.readFileSync('./dict/nrc.sal.array.txt', 'utf8');
 let words = rawWords.split(' ');
 /**
  * Initialization
  */
-let trie = util.buildTrie(fs.readFileSync('./dict/suffix.js', 'utf8'));
+let trie = util.buildTrie(fs.readFileSync('./dict/nrc.sal.trie.js', 'utf8'));
 let arr = util.buildBinaryDict(rawWords);
 
 /**

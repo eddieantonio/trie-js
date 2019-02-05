@@ -26,10 +26,10 @@ for ( var i = 0, l = words.length; i < l; i++ ) {
 	}
 }
 
-/*
 // Optimize the structure
 optimize( trie );
 
+/*
 // Figure out common suffixes
 suffixes( trie, end );
 
@@ -46,7 +46,7 @@ finishSuffixes( trie, keepEnd, end );
 trie.$ = endings;
 */
 
-var ret = JSON.stringify( trie ).replace(/"/g, "");
+var ret = JSON.stringify( trie ).replace(/"(\w+)"/g, '$1');
 
 var reserved = [ "abstract", "boolean", "break", "byte", "case", "catch", "char", "class", "const", "continue", "debugger", "default", "delete", "do", "double", "else", "enum", "export", "extends", "false", "final", "finally", "float", "for", "function", "goto", "if", "implements", "import", "in", "instanceof", "int", "interface", "long", "native", "new", "null", "package", "private", "protected", "public", "return", "short", "static", "super", "switch", "synchronized", "this", "throw", "throws", "transient", "true", "try", "typeof", "var", "void", "volatile", "while", "with" ];
 
