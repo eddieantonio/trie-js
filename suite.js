@@ -14,7 +14,7 @@ let arr = util.buildBinaryDict(rawWords);
 
 suite
   .add('Trie lookup', function () {
-    util.findTrieWord(randomWord(), trie);
+    util.findTrieWord(randomWord());
   })
   .add('Array lookup', function () {
     util.findBinaryWord(randomWord())

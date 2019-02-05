@@ -1,8 +1,9 @@
 var dict,
+	trie
 	FrozenTrie = require("./Bits.js").FrozenTrie;
 
 exports.buildTrie = function( txt ) {
-	return (dict = eval( "(" + txt + ")" ));
+	return (trie = eval( "(" + txt + ")" ));
 };
 
 exports.buildBinaryDict = function( txt ) {
@@ -31,16 +32,17 @@ exports.buildHashDict = function( txt ) {
 };
 
 exports.findTrieWord = function findTrieWord( word, cur ) {
+
 	if ( cur === 0 ) {
 		return false;
 	}
 
-	cur = cur || dict;
+	cur = cur || trie;
 
 	for ( var node in cur ) {
 		if ( word.indexOf( node ) === 0 ) {
 			var val = typeof cur[ node ] === "number" && cur[ node ] ?
-				dict.$[ cur[ node ] ] :
+				trie.$[ cur[ node ] ] :
 				cur[ node ];
 
 			if ( node.length === word.length ) {
