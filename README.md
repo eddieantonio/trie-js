@@ -12,8 +12,10 @@ suffix trie implementation.
 ### Results
 
 > Trie lookup (entry exists) x 413,275 ops/sec ±1.46% (83 runs sampled)
+>
 > Array lookup (entry exists) x 12,391,280 ops/sec ±1.62% (85 runs sampled)
-> Fastest is Array lookup (entry exists)
+>
+> Fastest is **Array lookup (entry exists)**
 
 The Array binary search lookup is superior in speed! 
 
