@@ -1,0 +1,22 @@
+{
+  "name": "trie",
+  "version": "1.0.0",
+  "description": "Copyright 2011 John Resig   MIT Licensed",
+  "main": "/dev/null",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eddieantonio/trie-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eddieantonio/trie-js/issues"
+  },
+  "homepage": "https://github.com/eddieantonio/trie-js#readme",
+  "dependencies": {
+    "benchmark": "^2.1.4"
+  }
+}
