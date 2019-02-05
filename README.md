@@ -11,6 +11,7 @@ suffix trie implementation.
 
 ### Results
 
+Benchmarks done on my 2013 Macbook Pro, node v10.7.0.
 
 #### Word exists in wordlist
 
