@@ -1,5 +1,11 @@
 let Benchmark = require('benchmark');
 
+if (typeof window !== 'undefined') {
+  // Benchmark is weird about being both in Window and in a module,
+  // so make it a browser global to be happy.
+  window.Benchmark = Benchmark;
+}
+
 let util = require('./util');
 let fs = require('fs');
 
@@ -79,5 +85,9 @@ function onComplete () {
 }
 
 function log(txt) {
-  console.log(`> ${txt}<br/>`);
+  if (typeof window !== 'undefined') {
+    document.write(`<output>${txt}</output>`);
+  } else {
+    console.log(`> ${txt}<br/>`);
+  }
 }

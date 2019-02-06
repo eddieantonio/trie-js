@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/eddieantonio/trie-js#readme",
   "dependencies": {
-    "benchmark": "^2.1.4"
+    "benchmark": "^2.1.4",
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.11.0"
   }
 }
