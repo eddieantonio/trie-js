@@ -14,21 +14,20 @@ suffix trie implementation.
 Benchmarks were performed on my 2013 Macbook Pro with node v10.7.0, and
 on my 2016 OnePlus 3T (A3000) with Android 8.0.0/Chrome 72.0.3626.76.
 
-Words in SENĆOŦEN list: 11,888.
+Words in SENĆOŦEN list: **11,888**.
 
 #### Word exists in wordlist
 
 Macbook:
 
-> Words in SENĆOŦEN list: 11888<br/>
 > Trie x 473,351 ops/sec ±2.40% (83 runs sampled)<br/>
 > Array x 1,448,714 ops/sec ±1.89% (85 runs sampled)<br/>
 > Fastest is **Array**<br/>
 
 Android:
 
-> Trie x 211,606 ops/sec ±1.01% (56 runs sampled)
-> Array x 745,451 ops/sec ±0.51% (58 runs sampled)
+> Trie x 211,606 ops/sec ±1.01% (56 runs sampled)<br/>
+> Array x 745,451 ops/sec ±0.51% (58 runs sampled)<br/>
 > Fastest is **Array**
 
 #### Word does NOT exist in wordlist
@@ -41,8 +40,8 @@ Macbook:
 
 Android:
 
-> Trie x 217,272 ops/sec ±1.12% (58 runs sampled)
-> Array x 462,619 ops/sec ±1.30% (59 runs sampled)
+> Trie x 217,272 ops/sec ±1.12% (58 runs sampled)<br/>
+> Array x 462,619 ops/sec ±1.30% (59 runs sampled)<br/>
 > Fastest is **Array**
 
 It seems that binary searching in a word list is faster than the trie,
