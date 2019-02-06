@@ -6,13 +6,32 @@ exports.buildTrie = function( txt ) {
 	return (trie = eval( "(" + txt + ")" ));
 };
 
-exports.buildBinaryDict = function( txt ) {
-	return (dict = txt.split(","));
+exports.buildBinaryDict = function( words ) {
+	let wordsByLength = [];
+
+	for (let word of words) {
+		let l = word.length;
+		let subarray = wordsByLength[l];
+		if (!subarray) {
+			subarray = wordsByLength[l] = [];
+		}
+		subarray.push(word);
+	}
+
+	for (let i = 0, l = wordsByLength.length; i < l; i++) {
+		wordsByLength[i] = (wordsByLength[i] || []).sort();
+	}
+
+	// Ensure the array for zero-length strings is empty
+	// We do not want to match the empty string!
+	wordsByLength[0] = [];
+
+	return dict = wordsByLength;
 };
 
 exports.buildSuccinctDict = function( txt ) {
 	var parts = txt.split(",");
-	
+
 	return (dict = new FrozenTrie( parts[2], parts[1], parts[0] ));
 };
 
@@ -23,7 +42,7 @@ exports.buildStringDict = function( txt ) {
 exports.buildHashDict = function( txt ) {
 	var words = txt.split(" "),
 		tmp = {};
-	
+
 	for ( var i = 0, l = words.length; i < l; i++ ) {
 		tmp[ words[i] ] = true;
 	}
@@ -59,31 +78,33 @@ exports.findTrieWord = function findTrieWord( word, cur ) {
 
 exports.findBinaryWord = function( word ) {
 	var l = word.length;
-	
-	if ( !dict[l] ) {
+	let subarray = dict[l];
+
+	if (!subarray) {
 		return false;
 	}
-	
-	var words = dict[l].length / l,
-		low = 0, high = words - 1, mid = Math.floor( words / 2 );
-		
-	while ( high >= low ) {
-		var found = dict[l].substr( l * mid, l );
-		
-		if ( word === found ) {
+
+	var words = subarray.length,
+		low = 0,
+		high = words - 1,
+		mid = Math.floor( words / 2 );
+
+	while (high >= low) {
+		var found = subarray[mid];
+
+		if (word === found) {
 			return true;
 		}
-		
-		if ( word < found ) {
-			high = mid - 1;
-		
+
+		if (word < found) {
+			high = mid - 1; // exclude `found`
 		} else {
-			low = mid + 1;
+			low = mid + 1; // exclude `found`
 		}
-		
+
 		mid = Math.floor( (low + high) / 2 );
 	}
-	
+
 	return false;
 };
 
