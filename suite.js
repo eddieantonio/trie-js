@@ -9,7 +9,9 @@ let words = rawWords.split(' ');
  * Initialization
  */
 let trie = util.buildTrie(fs.readFileSync('./dict/nrc.sal.trie.js', 'utf8'));
-let arr = util.buildBinaryDict(rawWords);
+let bin = util.buildBinaryDict(words);
+
+log(`Words in SENĆOŦEN list: ${words.length}`);
 
 /**
  * Finding a true word.
@@ -38,6 +40,19 @@ failedLookupSuite
   .on('complete', onComplete)
   .run();
 
+/**
+ * As a baseline:
+ */
+(new Benchmark.Suite('Generating a word'))
+  .add('randomWord()', function () {
+    randomWord()
+  })
+  .add('randomNonWord()', function () {
+    randomNonWord()
+  })
+  .on('cycle', onCycle)
+  .on('complete', onComplete)
+  .run();
 
 function randomWord() {
   return words[~~(Math.random() * words.length)];
